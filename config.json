@@ -1,10 +1,11 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "info"
   },
   "inbounds": [
     {
-      "port": 443,
+      "port": 10086,
+      "listen": "127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -16,20 +17,8 @@
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/path/to/certificate.crt",
-              "keyFile": "/path/to/private.key"
-            }
-          ]
-        },
         "wsSettings": {
-          "path": "/vmessws",
-          "headers": {
-            "Host": "xray-railway-production-a446.up.railway.app"
-          }
+          "path": "/vmessws"
         }
       }
     }
