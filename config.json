@@ -28,7 +28,7 @@
         "wsSettings": {
           "path": "/vmessws",
           "headers": {
-            "Host": "railway.niteatmos.ovh"
+            "Host": "xray-railway-production-a446.up.railway.app"
           }
         }
       }
