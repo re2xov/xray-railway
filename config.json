@@ -26,8 +26,10 @@
           ]
         },
         "wsSettings": {
-          "path": "/vmessws"
-          
+          "path": "/vmessws",
+          "headers": {
+            "Host": "railway.niteatmos.ovh"
+          }
         }
       }
     }
