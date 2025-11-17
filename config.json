@@ -5,28 +5,53 @@
   "inbounds": [
     {
       "port": 443,
-      "protocol": "vless",
+      "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "f2934eab-4c12-4ea9-a388-a557145391e8",
-            "level": 0
+            "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+            "alterId": 0
           }
-        ],
-        "decryption": "none"
+        ]
       },
       "streamSettings": {
         "network": "ws",
-        "security": "none",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/path/to/certificate.crt",
+              "keyFile": "/path/to/private.key"
+            }
+          ]
+        },
         "wsSettings": {
-          "path": "/vless-ws"
+          "path": "/vmessws"
+          
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
     }
-  ]
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
 }
